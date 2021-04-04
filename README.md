@@ -59,9 +59,18 @@ You should now be able to open the app in the browser
 
 http://127.0.0.1:8000/ or http://localhost:8000/
 
+<br>
+
+Login credentials:
+
+username:admin@admin.com
+
+password:password
 
 <br>
 
 [Laravel OpenApi Demo Documentation](http://127.0.0.1:8000/api/documentation)
 
-{{website_url}}/api/documentation
+or
+
+website_url/api/documentation
