@@ -14,7 +14,7 @@
                                    @keyup="searchLocations" >
                             <div class="input-group-append">
                                 <button class="search-button btn btn-navbar border border-muted" @click.prevent="">
-                                    <i class="fas fa-search"></i>
+                                    <i class="fa fa-search"></i>
                                 </button>
                             </div>
                         </div>
@@ -24,7 +24,7 @@
 
             <div class="card-body">
                 <button class="btn btn-sm btn-primary mb-2 float-right" @click="openCreateModal">
-                    Add new <i class="fas fa-plus-circle"></i>
+                    Add new <i class="fa fa-plus-circle"></i>
                 </button>
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
@@ -53,12 +53,12 @@
                         <td class="text-center">
                             <button class="btn btn-sm btn-info" @click="openEditModal(location)">
                                 Edit
-                                <i class="fas fa-edit"></i>
+                                <i class="fa fa-edit"></i>
                             </button>
                         </td>
                         <td class="text-center">
                             <button class="btn btn-sm btn-danger" @click="deleteLocation(location.id)">
-                                Delete <i class="fas fa-trash-alt"></i>
+                                Delete <i class="fa fa-trash-alt"></i>
                             </button>
                         </td>
                     </tr>

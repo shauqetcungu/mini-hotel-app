@@ -14,7 +14,7 @@
                                    @keyup="searchHotels" >
                             <div class="input-group-append">
                                 <button class="search-button btn btn-navbar border border-muted" @click.prevent="">
-                                    <i class="fas fa-search"></i>
+                                    <i class="fa fa-search"></i>
                                 </button>
                             </div>
                         </div>
@@ -24,7 +24,7 @@
 
             <div class="card-body">
                 <button class="btn btn-sm btn-primary mb-2 float-right" @click="openCreateModal">
-                    Add new <i class="fas fa-plus-circle"></i>
+                    Add new <i class="fa fa-plus-circle"></i>
                 </button>
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
@@ -52,21 +52,21 @@
                         <td class="text-center">{{ hotel.category }}</td>
                         <td class="text-center">{{ hotel.reputation }}
                         <td class="text-center h2">
-                            <i class="fas fa-frown text-danger" v-if="hotel.reputation <= 500"></i>
-                            <i class="fas fa-meh text-warning" v-else-if="hotel.reputation > 500 && hotel.reputation < 800"></i>
-                            <i class="fas fa-smile text-success" v-else></i>
+                            <i class="fa fa-frown text-danger" v-if="hotel.reputation <= 500"></i>
+                            <i class="fa fa-meh text-warning" v-else-if="hotel.reputation > 500 && hotel.reputation < 800"></i>
+                            <i class="fa fa-smile text-success" v-else></i>
                         </td>
                         <td class="text-center">{{ hotel.price }}</td>
                         <td class="text-center">{{ hotel.availability }}</td>
                         <td class="text-center">
                             <button class="btn btn-sm btn-info" @click="openEditModal(hotel)">
                                 Edit
-                                <i class="fas fa-edit"></i>
+                                <i class="fa fa-edit"></i>
                             </button>
                         </td>
                         <td class="text-center">
                             <button class="btn btn-sm btn-danger" @click="deleteHotel(hotel.id)">
-                                Delete <i class="fas fa-trash-alt"></i>
+                                Delete <i class="fa fa-trash-alt"></i>
                             </button>
                         </td>
                     </tr>

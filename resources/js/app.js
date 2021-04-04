@@ -3,6 +3,11 @@ require('./bootstrap');
 // Vue
 import Vue from 'vue';
 
+// Jquery
+
+import $ from 'jquery';
+window.$ = $;
+
 // Vuex
 import Vuex from 'vuex'
 Vue.use(Vuex);
