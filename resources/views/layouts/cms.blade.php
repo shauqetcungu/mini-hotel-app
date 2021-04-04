@@ -8,6 +8,8 @@
     <title>{{ config('app.name', 'Hotel mini app') }}</title>
     <link rel="stylesheet" href="{{ asset('AdminLTE-3/plugins/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('AdminLTE-3/dist/css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div id="app"></div>
