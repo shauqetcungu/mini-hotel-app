@@ -39,6 +39,8 @@ Route::group(["prefix" => "admin", "middleware" => "auth"], function () {
 
     // Hotels
     Route::resource('hotels', HotelsController::class);
-    Route::get('/hotels/{searchKeyword}/search', [HotelsController::class, 'getSearched']);
+    Route::get('/hotels/{searchKeyword}/book', [HotelsController::class, 'getSearched']);
+    Route::post('/hotels/{id}/book', [HotelsController::class, 'bookHotel']);
     Route::get('/hotel', [HotelsController::class, 'hotel']);
+    Route::get('/book', [HotelsController::class, 'hotel']);
 });

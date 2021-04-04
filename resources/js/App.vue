@@ -48,6 +48,14 @@
                             </router-link>
                         </li>
                     </ul>
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item">
+                            <router-link class="nav-link" :to="{ path: '/admin/book' }">
+                                <i class="fas fa-check nav-icon"></i>
+                                <p>Book Hotel</p>
+                            </router-link>
+                        </li>
+                    </ul>
                 </nav>
             </div>
         </aside>

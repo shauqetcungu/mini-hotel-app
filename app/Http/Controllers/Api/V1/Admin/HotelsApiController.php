@@ -269,4 +269,55 @@ class HotelsApiController extends Controller
             ->paginate(10);
         return new HotelResource($hotels);
     }
+
+
+    /**
+     * @OA\Put(
+     *      path="/api/v1/hotels/{id}/book",
+     *      operationId="bookHotel",
+     *      tags={"Hotels"},
+     *      summary="Book existing hotel",
+     *      description="Returns updated hotel data",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Hotel id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=202,
+     *          description="Successful operation",
+     *          @OA\JsonContent(ref="#/components/schemas/Hotel")
+     *       ),
+     *      @OA\Response(
+     *          response=400,
+     *          description="Bad Request"
+     *      ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      ),
+     *      @OA\Response(
+     *          response=404,
+     *          description="Resource Not Found"
+     *      )
+     * )
+     * @param $id
+     * @return HotelResource
+     */
+    public function bookHotel($id) {
+        $hotel = Hotel::find($id);
+        if($hotel->availability>0){
+            $hotel->availability--;
+            $hotel->save();
+        }
+        return new HotelResource($hotel);
+    }
 }

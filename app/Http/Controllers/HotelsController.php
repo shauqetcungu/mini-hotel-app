@@ -134,6 +134,13 @@ class HotelsController extends Controller
         return $hotels ? response()->json(["success", $hotels], 200) : response()->json(["error"], 500);
     }
 
+    public function bookHotel($id) {
+        $hotel = Hotel::find($id);
+        $hotel->availability--;
+        $hotel->save();
+        return $hotel ? response()->json(["success", $hotel], 200) : response()->json(["error"], 500);
+    }
+
     public static function uploadImage($image, $destinationPath) {
         $filename = Str::random(4) . '-' . str_replace(' ', '-', $image->getClientOriginalName());
         $image->move(public_path() . $destinationPath, $filename);
