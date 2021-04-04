@@ -141,6 +141,17 @@ class HotelsController extends Controller
         return $hotel ? response()->json(["success", $hotel], 200) : response()->json(["error"], 500);
     }
 
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function allHotels()
+    {
+        $hotels = Hotel::all();
+        return response()->json(["success", $hotels], 200);
+    }
+
     public static function uploadImage($image, $destinationPath) {
         $filename = Str::random(4) . '-' . str_replace(' ', '-', $image->getClientOriginalName());
         $image->move(public_path() . $destinationPath, $filename);

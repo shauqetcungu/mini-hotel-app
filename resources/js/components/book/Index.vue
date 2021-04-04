@@ -45,10 +45,9 @@
         },
         methods: {
             loadHotels(page = 1) {
-                axios.get(`${window.base_url}/admin/hotels?page=${page}`).then(response => {
+                axios.get(`${window.base_url}/admin/all-hotels`).then(response => {
                     if(response.data[0] === "success") {
-                        this.hotelsPagination = response.data[1];
-                        this.hotels = response.data[1].data;
+                        this.hotels = response.data[1];
                         this.pageIsLoading = false;
                     }
                 });
