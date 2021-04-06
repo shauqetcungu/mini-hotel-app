@@ -33,7 +33,7 @@ class Hotel
      * @OA\Property(
      *      title="Name",
      *      description="Name of the new hotel",
-     *      example="A nice hotel"
+     *      example="Splendid"
      * )
      *
      * @var string
@@ -43,8 +43,8 @@ class Hotel
     /**
      * @OA\Property(
      *      title="Rating",
-     *      description="Rating of the new hotel",
-     *      example="This is new hotel's description"
+     *      description="Rating of the hotel",
+     *      example="5"
      * )
      *
      * @var integer
@@ -54,8 +54,8 @@ class Hotel
     /**
      * @OA\Property(
      *      title="Category",
-     *      description="Category of the new hotel",
-     *      example="This is new hotel's description"
+     *      description="Category of the hotel",
+     *      example="resort"
      * )
      *
      * @var string
@@ -66,7 +66,7 @@ class Hotel
     /**
      * @OA\Property(
      *      title="Reputation",
-     *      description="Reputation of the new hotel",
+     *      description="Reputation of the hotel",
      *      example="700"
      * )
      *
@@ -77,13 +77,24 @@ class Hotel
     /**
      * @OA\Property(
      *      title="Price",
-     *      description="Price of the new hotel",
-     *      example="This is new hotel's description"
+     *      description="Price of the hotel",
+     *      example="1000"
+     * )
+     *
+     * @var double
+     */
+    public $price;
+
+    /**
+     * @OA\Property(
+     *      title="Availability",
+     *      description="Availability of the hotel",
+     *      example="10"
      * )
      *
      * @var integer
      */
-    public $price;
+    public $availability;
 
     /**
      * @OA\Property(
@@ -123,4 +134,26 @@ class Hotel
      * @var DateTime
      */
     private $deleted_at;
+
+    /**
+     * @OA\Property(
+     *      title="Location ID",
+     *      description="Location ID",
+     *      format="int64",
+     *      example=1
+     * )
+     *
+     * @var integer
+     */
+    public $location_id;
+
+
+    /**
+     * @OA\Property(
+     *     title="Location",
+     * )
+     *
+     * @var Location
+     */
+    private $location;
 }

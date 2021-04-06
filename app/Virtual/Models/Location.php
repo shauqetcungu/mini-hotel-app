@@ -34,7 +34,7 @@ class Location
      * @OA\Property(
      *      title="City",
      *      description="City of the new location",
-     *      example="A nice location"
+     *      example="Podgorica"
      * )
      *
      * @var string
@@ -43,9 +43,20 @@ class Location
 
     /**
      * @OA\Property(
+     *      title="State",
+     *      description="State of the new location",
+     *      example="Montenegro"
+     * )
+     *
+     * @var string
+     */
+    public $state;
+
+    /**
+     * @OA\Property(
      *      title="Country",
-     *      description="Country of the new location",
-     *      example="This is new location's description"
+     *      description="Country of the location",
+     *      example="Montenegro"
      * )
      *
      * @var string
@@ -54,21 +65,9 @@ class Location
 
     /**
      * @OA\Property(
-     *      title="state",
-     *      description="state of the new location",
-     *      example="This is new location's description"
-     * )
-     *
-     * @var string
-     */
-    public $state;
-
-
-    /**
-     * @OA\Property(
      *      title="address",
-     *      description="address of the new location",
-     *      example="This is new location's description"
+     *      description="address of the location",
+     *      example="Ulica Slobode"
      * )
      *
      * @var string
@@ -78,8 +77,8 @@ class Location
     /**
      * @OA\Property(
      *      title="zip_code",
-     *      description="zip_code of the new location",
-     *      example="This is new location's description"
+     *      description="zip_code of the location",
+     *      example="81000"
      * )
      *
      * @var string

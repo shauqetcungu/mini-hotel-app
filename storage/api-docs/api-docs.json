@@ -568,31 +568,38 @@
                         "title": "Name",
                         "description": "Name of the new hotel",
                         "type": "string",
-                        "example": "A nice hotel"
+                        "example": "Splendid"
                     },
                     "rating": {
                         "title": "Rating",
-                        "description": "Rating of the new hotel",
+                        "description": "Rating of the hotel",
                         "type": "integer",
-                        "example": "This is new hotel's description"
+                        "example": "5"
                     },
                     "category": {
                         "title": "Category",
-                        "description": "Category of the new hotel",
+                        "description": "Category of the hotel",
                         "type": "string",
-                        "example": "This is new hotel's description"
+                        "example": "resort"
                     },
                     "reputation": {
                         "title": "Reputation",
-                        "description": "Reputation of the new hotel",
+                        "description": "Reputation of the hotel",
                         "type": "integer",
                         "example": "700"
                     },
                     "price": {
                         "title": "Price",
-                        "description": "Price of the new hotel",
+                        "description": "Price of the hotel",
+                        "type": "number",
+                        "format": "double",
+                        "example": "1000"
+                    },
+                    "availability": {
+                        "title": "Availability",
+                        "description": "Availability of the hotel",
                         "type": "integer",
-                        "example": "This is new hotel's description"
+                        "example": "10"
                     },
                     "created_at": {
                         "title": "Created at",
@@ -614,6 +621,16 @@
                         "type": "string",
                         "format": "datetime",
                         "example": "2020-01-27 17:50:45"
+                    },
+                    "location_id": {
+                        "title": "Location ID",
+                        "description": "Location ID",
+                        "type": "integer",
+                        "format": "int64",
+                        "example": 1
+                    },
+                    "location": {
+                        "$ref": "#/components/schemas/Location"
                     }
                 },
                 "type": "object",
@@ -636,31 +653,31 @@
                         "title": "City",
                         "description": "City of the new location",
                         "type": "string",
-                        "example": "A nice location"
+                        "example": "Podgorica"
+                    },
+                    "state": {
+                        "title": "State",
+                        "description": "State of the new location",
+                        "type": "string",
+                        "example": "Montenegro"
                     },
                     "country": {
                         "title": "Country",
-                        "description": "Country of the new location",
+                        "description": "Country of the location",
                         "type": "string",
-                        "example": "This is new location's description"
-                    },
-                    "state": {
-                        "title": "state",
-                        "description": "state of the new location",
-                        "type": "string",
-                        "example": "This is new location's description"
+                        "example": "Montenegro"
                     },
                     "address": {
                         "title": "address",
-                        "description": "address of the new location",
+                        "description": "address of the location",
                         "type": "string",
-                        "example": "This is new location's description"
+                        "example": "Ulica Slobode"
                     },
                     "zip_code": {
                         "title": "zip_code",
-                        "description": "zip_code of the new location",
+                        "description": "zip_code of the location",
                         "type": "string",
-                        "example": "This is new location's description"
+                        "example": "81000"
                     },
                     "created_at": {
                         "title": "Created at",
