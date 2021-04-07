@@ -1,5 +1,8 @@
 ## Installation
 
+This installation assumes there is already a web server set up, like for example Apache, and the connection to the sever and MySQL database is successfull.
+
+
 Type in the following:
 
 <br>
