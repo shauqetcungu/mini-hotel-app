@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UsersTableSeeder extends Seeder
 {
@@ -17,11 +17,24 @@ class UsersTableSeeder extends Seeder
     {
         User::insert([
             [
-                "name" => "admin",
+                "name" => "Administrator",
                 "email" => "admin@admin.com",
+                'username' => "admin",
+                'role' => User::ADMINISTRATOR,
                 'email_verified_at' => now(),
-                "password" => Hash::make("password"),
+                "password" => bcrypt("password"),
+                'remember_token' => Str::random(10),
+            ],
+            [
+                "name" => "Secretary",
+                "email" => "secretary@secretary.com",
+                'username' => "secretary",
+                'role' => User::SECRETARY,
+                'email_verified_at' => now(),
+                "password" => bcrypt("password"),
+                'remember_token' => Str::random(10),
             ]
         ]);
+        User::factory(20)->create();
     }
 }

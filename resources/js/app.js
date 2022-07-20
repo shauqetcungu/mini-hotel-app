@@ -56,21 +56,14 @@ Vue.directive('tooltip', function(el, binding){
 /***** Components *****/
 import App from './App.vue';
 import HomeComponent from "./components/HomeComponent";
-import LocationsComponent from "./components/locations/Index"
-import HotelsComponent from "./components/hotels/Index";
-import BookComponent from "./components/book/Index";
+import UsersComponent from "./components/users/Index"
 
 // Routes
 const routes = [
     // CMS routes
     { path: '/admin', name: 'HomeComponent', component: HomeComponent },
-    { path: '/admin/location', name: 'LocationsComponent', component: LocationsComponent },
-    { path: '/admin/hotel', name: 'HotelsComponent', component: HotelsComponent },
-    { path: '/admin/book', name: 'BookComponent', component: BookComponent },
+    { path: '/admin/user', name: 'UsersComponent', component: UsersComponent },
 ];
-
-// Bus
-// window.EventBus = new Vue();
 
 // Router
 const router = new VueRouter({

@@ -20,7 +20,7 @@
 
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <a :href="base_url" target="_blank" class="brand-link text-center">
-                <span class="brand-text font-weight-light text-center">Hotel mini app</span>
+                <span class="brand-text font-weight-light text-center">Massive Dynamic Inc</span>
             </a>
             <div class="sidebar">
                 <nav class="mt-2">
@@ -32,27 +32,11 @@
                             </router-link>
                         </li>
                     </ul>
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <ul v-if="this.user.role===1 || this.user.role===2" class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
-                            <router-link class="nav-link" :to="{ path: '/admin/hotel' }">
+                            <router-link class="nav-link" :to="{ path: '/admin/user' }">
                                 <i class="fas fa-hotel nav-icon"></i>
-                                <p>Hotels</p>
-                            </router-link>
-                        </li>
-                    </ul>
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <li class="nav-item">
-                            <router-link class="nav-link" :to="{ path: '/admin/location' }">
-                                <i class="fas fa-map-marker nav-icon"></i>
-                                <p>Locations</p>
-                            </router-link>
-                        </li>
-                    </ul>
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                        <li class="nav-item">
-                            <router-link class="nav-link" :to="{ path: '/admin/book' }">
-                                <i class="fas fa-check nav-icon"></i>
-                                <p>Book Hotel</p>
+                                <p>Users</p>
                             </router-link>
                         </li>
                     </ul>
@@ -103,7 +87,6 @@
         data() {
             return {
                 user: {},
-                year: "",
                 breadcrumbUrl: "",
                 pageName: "",
                 base_url: ""
@@ -114,7 +97,7 @@
                 axios.get(`${window.base_url}/admin/admin-info`)
                     .then(response => {
                         if(response.data[0] === "success") {
-                            this.user = response.data[1][0];
+                            this.user = response.data[1];
                             EventBus.$emit("authUser", this.user);
                         }
                     }).catch(() => {

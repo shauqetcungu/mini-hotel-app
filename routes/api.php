@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\V1\Admin\UsersApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,9 +24,6 @@ Route::group([
     'as' => 'api.',
     'middleware' => ['api']
 ], function () {
-    Route::apiResource('hotels', 'App\Http\Controllers\Api\V1\Admin\HotelsApiController');
-    Route::put('/hotels/{id}/book', ['App\Http\Controllers\Api\V1\Admin\HotelsApiController', 'bookHotel']);
-    Route::get('/hotels/{searchKeyword}/search', ['App\Http\Controllers\Api\V1\Admin\HotelsApiController','getSearched']);
-    Route::apiResource('locations', 'App\Http\Controllers\Api\V1\Admin\LocationsApiController');
-    Route::get('/locations/{searchKeyword}/search', ['App\Http\Controllers\Api\V1\Admin\LocationsApiController','getSearched']);
+    Route::apiResource('users', UsersApiController::class);
+    Route::get('/users/{searchKeyword}/search', [UsersApiController::class,'getSearched']);
 });

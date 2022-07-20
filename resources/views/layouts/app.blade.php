@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Hotel mini app') }}</title>
+    <title>{{ config('app.name', 'Massive Dynamic Inc') }}</title>
 
 
     <!-- Fonts -->

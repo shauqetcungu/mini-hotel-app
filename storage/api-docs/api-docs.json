@@ -5,21 +5,21 @@
         "version": "1.0.0"
     },
     "paths": {
-        "/api/v1/hotels": {
+        "/api/v1/users": {
             "get": {
                 "tags": [
-                    "Hotels"
+                    "Users"
                 ],
-                "summary": "Get list of hotels",
-                "description": "Returns list of hotels",
-                "operationId": "getHotelsList",
+                "summary": "Get list of users",
+                "description": "Returns list of users",
+                "operationId": "getUsersList",
                 "responses": {
                     "200": {
                         "description": "Successful operation",
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/HotelResource"
+                                    "$ref": "#/components/schemas/UserResource"
                                 }
                             }
                         }
@@ -34,17 +34,17 @@
             },
             "post": {
                 "tags": [
-                    "Hotels"
+                    "Users"
                 ],
-                "summary": "Store new hotel",
-                "description": "Returns hotel data",
-                "operationId": "storeHotel",
+                "summary": "Store new user",
+                "description": "Returns user data",
+                "operationId": "storeUser",
                 "requestBody": {
                     "required": true,
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/HotelRequest"
+                                "$ref": "#/components/schemas/UserRequest"
                             }
                         }
                     }
@@ -55,7 +55,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Hotel"
+                                    "$ref": "#/components/schemas/User"
                                 }
                             }
                         }
@@ -72,19 +72,19 @@
                 }
             }
         },
-        "/api/v1/hotels/{id}": {
+        "/api/v1/users/{id}": {
             "get": {
                 "tags": [
-                    "Hotels"
+                    "Users"
                 ],
-                "summary": "Get hotel information",
-                "description": "Returns hotel data",
-                "operationId": "getHotelById",
+                "summary": "Get user information",
+                "description": "Returns user data",
+                "operationId": "getUserById",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "Hotel id",
+                        "description": "User id",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -97,7 +97,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Hotel"
+                                    "$ref": "#/components/schemas/User"
                                 }
                             }
                         }
@@ -115,16 +115,16 @@
             },
             "put": {
                 "tags": [
-                    "Hotels"
+                    "Users"
                 ],
-                "summary": "Update existing hotel",
-                "description": "Returns updated hotel data",
-                "operationId": "updateHotel",
+                "summary": "Update existing user",
+                "description": "Returns updated user data",
+                "operationId": "updateUser",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "Hotel id",
+                        "description": "User id",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -136,7 +136,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/HotelRequest"
+                                "$ref": "#/components/schemas/UserRequest"
                             }
                         }
                     }
@@ -147,7 +147,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Hotel"
+                                    "$ref": "#/components/schemas/User"
                                 }
                             }
                         }
@@ -168,16 +168,16 @@
             },
             "delete": {
                 "tags": [
-                    "Hotels"
+                    "Users"
                 ],
-                "summary": "Delete existing hotel",
+                "summary": "Delete existing user",
                 "description": "Deletes a record and returns no content",
-                "operationId": "deleteHotel",
+                "operationId": "deleteUser",
                 "parameters": [
                     {
                         "name": "id",
                         "in": "path",
-                        "description": "Hotel id",
+                        "description": "User id",
                         "required": true,
                         "schema": {
                             "type": "integer"
@@ -205,14 +205,14 @@
                 }
             }
         },
-        "/api/v1/hotels/{searchKeword}/search": {
+        "/api/v1/users/{searchKeword}/search": {
             "get": {
                 "tags": [
-                    "Hotels"
+                    "Users"
                 ],
-                "summary": "Get searched hotel",
-                "description": "Returns hotel data",
-                "operationId": "getSearchedHotel",
+                "summary": "Get searched user",
+                "description": "Returns user data",
+                "operationId": "getSearchedUser",
                 "parameters": [
                     {
                         "name": "searchKeword",
@@ -230,294 +230,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/Hotel"
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                }
-            }
-        },
-        "/api/v1/hotels/{id}/book": {
-            "put": {
-                "tags": [
-                    "Hotels"
-                ],
-                "summary": "Book existing hotel",
-                "description": "Returns updated hotel data",
-                "operationId": "bookHotel",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Hotel id",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "202": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Hotel"
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    },
-                    "404": {
-                        "description": "Resource Not Found"
-                    }
-                }
-            }
-        },
-        "/api/v1/locations": {
-            "get": {
-                "tags": [
-                    "Locations"
-                ],
-                "summary": "Get list of locations",
-                "description": "Returns list of locations",
-                "operationId": "getLocationsList",
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/LocationResource"
-                                }
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                }
-            },
-            "post": {
-                "tags": [
-                    "Locations"
-                ],
-                "summary": "Store new location",
-                "description": "Returns location data",
-                "operationId": "storeLocation",
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/LocationRequest"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "201": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Location"
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                }
-            }
-        },
-        "/api/v1/locations/{id}": {
-            "get": {
-                "tags": [
-                    "Locations"
-                ],
-                "summary": "Get location information",
-                "description": "Returns location data",
-                "operationId": "getLocationById",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Location id",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Location"
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                }
-            },
-            "put": {
-                "tags": [
-                    "Locations"
-                ],
-                "summary": "Update existing location",
-                "description": "Returns updated location data",
-                "operationId": "updateLocation",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Location id",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "requestBody": {
-                    "required": true,
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/LocationRequest"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "202": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Location"
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Bad Request"
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    },
-                    "404": {
-                        "description": "Resource Not Found"
-                    }
-                }
-            },
-            "delete": {
-                "tags": [
-                    "Locations"
-                ],
-                "summary": "Delete existing location",
-                "description": "Deletes a record and returns no content",
-                "operationId": "deleteLocation",
-                "parameters": [
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "Location id",
-                        "required": true,
-                        "schema": {
-                            "type": "integer"
-                        }
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {}
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    },
-                    "404": {
-                        "description": "Resource Not Found"
-                    }
-                }
-            }
-        },
-        "/api/v1/locations/{searchKeword}/search": {
-            "get": {
-                "tags": [
-                    "Locations"
-                ],
-                "summary": "Get searched location",
-                "description": "Returns location data",
-                "operationId": "getSearchedLocation",
-                "parameters": [
-                    {
-                        "name": "searchKeword",
-                        "in": "path",
-                        "description": "Keyword ",
-                        "required": true,
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/Location"
+                                    "$ref": "#/components/schemas/User"
                                 }
                             }
                         }
@@ -537,25 +250,17 @@
     },
     "components": {
         "schemas": {
-            "HotelRequest": {
-                "title": "Store Hotel request",
-                "description": "Store Hotel request body data",
+            "UserRequest": {
+                "title": "Store User request",
+                "description": "Store User request body data",
                 "required": [
                     "name"
                 ],
                 "type": "object"
             },
-            "LocationRequest": {
-                "title": "Store Location request",
-                "description": "Store Location request body data",
-                "required": [
-                    "name"
-                ],
-                "type": "object"
-            },
-            "Hotel": {
-                "title": "Hotel",
-                "description": "Hotel model",
+            "User": {
+                "title": "User",
+                "description": "User model",
                 "properties": {
                     "id": {
                         "title": "ID",
@@ -566,118 +271,33 @@
                     },
                     "name": {
                         "title": "Name",
-                        "description": "Name of the new hotel",
+                        "description": "Name of the new user",
                         "type": "string",
-                        "example": "Splendid"
+                        "example": "Name"
                     },
-                    "rating": {
-                        "title": "Rating",
-                        "description": "Rating of the hotel",
+                    "username": {
+                        "title": "Username",
+                        "description": "Username of the user",
+                        "type": "string",
+                        "example": "username"
+                    },
+                    "email": {
+                        "title": "Email",
+                        "description": "Email of the user",
+                        "type": "string",
+                        "example": "email"
+                    },
+                    "role": {
+                        "title": "Role",
+                        "description": "Role of the user",
                         "type": "integer",
-                        "example": "5"
+                        "example": "3"
                     },
-                    "category": {
-                        "title": "Category",
-                        "description": "Category of the hotel",
+                    "password": {
+                        "title": "Password",
+                        "description": "Password of the user",
                         "type": "string",
-                        "example": "resort"
-                    },
-                    "reputation": {
-                        "title": "Reputation",
-                        "description": "Reputation of the hotel",
-                        "type": "integer",
-                        "example": "700"
-                    },
-                    "price": {
-                        "title": "Price",
-                        "description": "Price of the hotel",
-                        "type": "number",
-                        "format": "double",
-                        "example": "1000"
-                    },
-                    "availability": {
-                        "title": "Availability",
-                        "description": "Availability of the hotel",
-                        "type": "integer",
-                        "example": "10"
-                    },
-                    "created_at": {
-                        "title": "Created at",
-                        "description": "Created at",
-                        "type": "string",
-                        "format": "datetime",
-                        "example": "2020-01-27 17:50:45"
-                    },
-                    "updated_at": {
-                        "title": "Updated at",
-                        "description": "Updated at",
-                        "type": "string",
-                        "format": "datetime",
-                        "example": "2020-01-27 17:50:45"
-                    },
-                    "deleted_at": {
-                        "title": "Deleted at",
-                        "description": "Deleted at",
-                        "type": "string",
-                        "format": "datetime",
-                        "example": "2020-01-27 17:50:45"
-                    },
-                    "location_id": {
-                        "title": "Location ID",
-                        "description": "Location ID",
-                        "type": "integer",
-                        "format": "int64",
-                        "example": 1
-                    },
-                    "location": {
-                        "$ref": "#/components/schemas/Location"
-                    }
-                },
-                "type": "object",
-                "xml": {
-                    "name": "Hotel"
-                }
-            },
-            "Location": {
-                "title": "Location",
-                "description": "Location model",
-                "properties": {
-                    "id": {
-                        "title": "ID",
-                        "description": "ID",
-                        "type": "integer",
-                        "format": "int64",
-                        "example": 1
-                    },
-                    "city": {
-                        "title": "City",
-                        "description": "City of the new location",
-                        "type": "string",
-                        "example": "Podgorica"
-                    },
-                    "state": {
-                        "title": "State",
-                        "description": "State of the new location",
-                        "type": "string",
-                        "example": "Montenegro"
-                    },
-                    "country": {
-                        "title": "Country",
-                        "description": "Country of the location",
-                        "type": "string",
-                        "example": "Montenegro"
-                    },
-                    "address": {
-                        "title": "address",
-                        "description": "address of the location",
-                        "type": "string",
-                        "example": "Ulica Slobode"
-                    },
-                    "zip_code": {
-                        "title": "zip_code",
-                        "description": "zip_code of the location",
-                        "type": "string",
-                        "example": "81000"
+                        "example": "password"
                     },
                     "created_at": {
                         "title": "Created at",
@@ -703,21 +323,14 @@
                 },
                 "type": "object",
                 "xml": {
-                    "name": "Location"
+                    "name": "User"
                 }
             },
-            "HotelResource": {
-                "title": "HotelResource",
-                "description": "Hotel resource",
+            "UserResource": {
+                "title": "UserResource",
+                "description": "User resource",
                 "xml": {
-                    "name": "HotelResource"
-                }
-            },
-            "LocationResource": {
-                "title": "LocationResource",
-                "description": "Location resource",
-                "xml": {
-                    "name": "LocationResource"
+                    "name": "UserResource"
                 }
             }
         }
